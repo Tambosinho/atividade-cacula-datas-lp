@@ -6,6 +6,7 @@ Created on Mon Sep 18 08:07:52 2023
 """
 
 import datetime, locale
+import sys
 
 def calcula_dif (duas_datas) :
     
@@ -15,8 +16,13 @@ def calcula_dif (duas_datas) :
     # Define the date format for parsing
     formato = "%d de %B de %Y"
 
-    # Split the dates based on the " - " separator
-    datas = duas_datas.split(" - ")
+    try: 
+        # Split the dates based on the " - " separator
+        datas = duas_datas.split(" - ")
+    except AttributeError: 
+        print("Você provavelmente digitou errado.")
+        sys.exit()
+        
 
     # Parse each date string into a datetime object
     parsed_dates = []
